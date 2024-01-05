@@ -27,11 +27,13 @@ int binary_tree_is_leaf(const binary_tree_t *node)
 
 size_t binary_tree_height(const binary_tree_t *tree)
 {
+	size_t left_subtree, right_subtree;
+
 	if (!tree)
 		return (0);
 
-	size_t left_subtree = binary_tree_height(tree->left);
-	size_t right_subtree = binary_tree_height(tree->right);
+	left_subtree = binary_tree_height(tree->left);
+	right_subtree = binary_tree_height(tree->right);
 
 	if (left_subtree < right_subtree)
 		return (right_subtree + 1);
