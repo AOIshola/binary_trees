@@ -9,12 +9,12 @@
 
 size_t binary_tree_size(const binary_tree_t *tree)
 {
-        if (!tree)
-                return (0);
-        size_t left = binary_tree_size(tree->left);
-        size_t right = binary_tree_size(tree->right);
+	if (!tree)
+		return (0);
+	size_t left = binary_tree_size(tree->left);
+	size_t right = binary_tree_size(tree->right);
 
-        return (left + right + 1);
+	return (left + right + 1);
 }
 
 /**
@@ -30,6 +30,10 @@ int binary_tree_is_full(const binary_tree_t *tree)
 		return (0);
 	binary_tree_is_full(tree->left);
 	binary_tree_is_full(tree->right);
+	if (tree->left && tree->right)
+		return (1);
+	else
+		return (0);
 /*	int size = (int) binary_tree_size(tree);
 	return (size % 2 ? 1 : 0);*/
 }
